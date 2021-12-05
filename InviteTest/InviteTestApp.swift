@@ -11,7 +11,7 @@ import SwiftUI
 struct InviteTestApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
