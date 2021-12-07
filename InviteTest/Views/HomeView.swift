@@ -14,8 +14,8 @@ struct HomeView: View {
     }
     
     //only for choosing random mock data
-    @State var randomUser = Int.random(in: 1..<4)
-    
+    @State var randomUser = Int.random(in: 1..<5)
+//    @State var randomUser = 4
     var body: some View {
         NavigationView
         {
@@ -26,7 +26,7 @@ struct HomeView: View {
             }
             .padding(.all)
             .buttonStyle(Theme.ButtonFormat())
-            .simultaneousGesture(TapGesture().onEnded({randomUser = Int.random(in: 1..<4) }))
+            .simultaneousGesture(TapGesture().onEnded({randomUser = Int.random(in: 1..<5) }))
         }
     }
 }

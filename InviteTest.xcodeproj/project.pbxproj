@@ -26,6 +26,7 @@
 		D6C26525275CAFB1004E5F7F /* User_2.json in Resources */ = {isa = PBXBuildFile; fileRef = D6C26524275CAFB1004E5F7F /* User_2.json */; };
 		D6C26527275CAFCB004E5F7F /* User_3.json in Resources */ = {isa = PBXBuildFile; fileRef = D6C26526275CAFCB004E5F7F /* User_3.json */; };
 		D6C2652A275CC929004E5F7F /* URLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C26529275CC929004E5F7F /* URLResponse.swift */; };
+		D6C2652C275D0108004E5F7F /* User_4.json in Resources */ = {isa = PBXBuildFile; fileRef = D6C2652B275D0108004E5F7F /* User_4.json */; };
 		D6C5B20327533A2600E1797C /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C5B20227533A2600E1797C /* PopupView.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		D6C26524275CAFB1004E5F7F /* User_2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = User_2.json; sourceTree = "<group>"; };
 		D6C26526275CAFCB004E5F7F /* User_3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = User_3.json; sourceTree = "<group>"; };
 		D6C26529275CC929004E5F7F /* URLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResponse.swift; sourceTree = "<group>"; };
+		D6C2652B275D0108004E5F7F /* User_4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = User_4.json; sourceTree = "<group>"; };
 		D6C5B20227533A2600E1797C /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +194,7 @@
 				D6C26520275CAF43004E5F7F /* User_1.json */,
 				D6C26524275CAFB1004E5F7F /* User_2.json */,
 				D6C26526275CAFCB004E5F7F /* User_3.json */,
+				D6C2652B275D0108004E5F7F /* User_4.json */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6C2652C275D0108004E5F7F /* User_4.json in Resources */,
 				D67EDA42275247D600E77C9D /* Preview Assets.xcassets in Resources */,
 				D67EDA3F275247D600E77C9D /* Assets.xcassets in Resources */,
 				D6C26521275CAF43004E5F7F /* User_1.json in Resources */,

@@ -9,18 +9,18 @@ import SwiftUI
 
 
 struct InviteMembersView: View {
+    @ObservedObject var teamVM: TeamViewModel
+    @State private var selectedPermission: Helpers.Permission?
+    @State private var showPermissionTypes: Bool =  false
+    @State private var teamsID: String
+    
     init(teamsID : String){
         Theme.navigationBarColors(background: .black, titleColor: .white)
         self.teamsID = teamsID
-        self.selectedPermission = Helpers.Permission.Coach
-        self.teamVM = TeamViewModel(teamsID: teamsID, selectedPermission: Helpers.Permission.Coach)
+        self.selectedPermission = nil
+        self.teamVM = TeamViewModel(teamsID: teamsID, selectedPermission: nil)
+        self.selectedPermission = self.teamVM.roleAvailability.first(where: { $0.value == Helpers.Availability.enabled })!.key
     }
-    
-    @ObservedObject var teamVM: TeamViewModel
-    @State private var selectedPermission: Helpers.Permission = Helpers.Permission.Coach
-    
-    @State private var showPermissionTypes: Bool =  false
-    @State private var teamsID: String
 
     var body: some View {
         
@@ -62,11 +62,10 @@ struct InviteMembersView: View {
                     Button(action: {showPermissionTypes = true}) {
                         HStack
                         {
-                            Text(selectedPermission.rawValue)
+                            Text((selectedPermission ?? teamVM.roleAvailability.first(where:{$0.value == Helpers.Availability.enabled})?.key)?.rawValue ?? "")
                                 .onChange(of: selectedPermission) { newValue in
-                                    self.teamVM.getInviteLink(permission: selectedPermission)
-                                }
-                            
+                                self.teamVM.getInviteLink(permission: selectedPermission!)
+                            }
                             Spacer()
                             Image(systemName: "chevron.down")
                         }

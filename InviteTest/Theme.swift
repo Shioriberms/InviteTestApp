@@ -21,8 +21,6 @@ class Theme{
         UINavigationBar.appearance().compactAppearance = navigationAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navigationAppearance
         UINavigationBar.appearance().tintColor = tintColor ?? titleColor ?? .black
-        
-       
     }
     
     struct ButtonFormat: ButtonStyle

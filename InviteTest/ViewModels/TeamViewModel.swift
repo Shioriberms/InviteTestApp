@@ -13,16 +13,21 @@ extension InviteMembersView {
         @Published var team: Team?
         @Published var roleAvailability : [Helpers.Permission: Helpers.Availability]
         @Published var inviteLink : String
+        //@Published var selectedPermission: Helpers.Permission
         
         private var service: WebService
         
-        init(teamsID : String, selectedPermission : Helpers.Permission){
+        init(teamsID : String, selectedPermission : Helpers.Permission?){
             self.service = WebService()
             self.roleAvailability = [Helpers.Permission: Helpers.Availability]()
             self.inviteLink = ""
             loadUser(teamsID: teamsID)
             getAvailableRoles()
-            getInviteLink(permission: selectedPermission)
+            if (selectedPermission != nil)
+            {
+                getInviteLink(permission: selectedPermission!)
+            }
+            
         }
         
         func loadUser(teamsID : String) {

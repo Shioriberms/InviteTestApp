@@ -13,47 +13,53 @@ import SwiftUI
 //
 //}
 struct PopupView: View {
-    @Binding var selectedPermission: Helpers.Permission
+    @Binding var selectedPermission: Helpers.Permission!
     @Binding var showPopup: Bool
     @Binding var permissionAvailability: [Helpers.Permission: Helpers.Availability]
     
     var body: some View {
         
 //        let permissionTypes =  ["Coach" : "manager", "Player Coach" : "editor", "Player" : "member", "Supporter" : "readonly"]
-        
-        VStack{
-            ForEach(self.permissionAvailability.sorted(by: >), id: \.key)
-            {
-                key, value in
-                
-                switch value {
-                case Helpers.Availability.enabled:
-                    Button(action:{
-                        self.selectedPermission = key
-                        self.showPopup = false
-                    })
-                    {
+        ZStack
+        {
+            Rectangle()
+                .foregroundColor(Color.white.opacity(0.2))
+                .edgesIgnoringSafeArea(.all)
+                .onTapGesture {
+                    self.showPopup = false
+                }
+            VStack{
+                ForEach(self.permissionAvailability.sorted(by: >), id: \.key)
+                {
+                    key, value in
+                    
+                    switch value {
+                    case Helpers.Availability.enabled:
+                        Button(action:{
+                            self.selectedPermission = key
+                            self.showPopup = false
+                        })
+                        {
+                            Text(key.rawValue)
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .padding(.vertical, 5.0)
+                                .foregroundColor(Color.blue)
+                        }
+                    case Helpers.Availability.disabled:
                         Text(key.rawValue)
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding(.vertical, 5.0)
-                            .foregroundColor(Color.blue)
+                            .foregroundColor(Color.gray)
+                    case .hidden:
+                        EmptyView()
                     }
-                case Helpers.Availability.disabled:
-                    Text(key.rawValue)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding(.vertical, 5.0)
-                        .foregroundColor(Color.blue)
-
-                case .hidden:
-                    EmptyView()
                 }
             }
+            
+            .frame(width: 300, alignment: .center)
+            .background(Color.white)
         }
-        
-        .frame(width: 300, alignment: .center)
-        .background(Color.white)
     }
-    
 }
 
 struct PopupView_Previews: PreviewProvider {
